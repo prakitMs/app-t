@@ -4,7 +4,7 @@ import { IoTrashBin } from "react-icons/io5";
 
 export const TaskTracker = () => {
   const [inputTask, setInputTask] = useState("");
-  const [task, setTask] = useState<{ label: string; active: boolean }[]>([]);
+  const [task, setTask] = useState<{ label?: string; active?: boolean }[]>([]);
 
   function handleClick() {
     if (!inputTask.trim()) return;
@@ -26,9 +26,17 @@ export const TaskTracker = () => {
     updatedTask[index].active = !updatedTask[index].active;
     setTask(updatedTask);
   }
+  console.log(task);
+
+  function deleteTask(idx: number) {
+    const updateArray = [...task];
+    delete updateArray[idx];
+
+    setTask(updateArray.filter(Boolean));
+  }
 
   return (
-    <div className="bg-amber-50 w-[500px] m-2 p-4 rounded-xl">
+    <div className="bg-[#9EC5AB] w-[500px] m-2 p-4 rounded-xl">
       <div className="mb-4 border-2 border-black rounded-sm p-2 w-[100%] grid grid-cols-8 h-[60px]">
         <input
           className="col-span-7 p-2 focus:outline-0"
@@ -67,7 +75,10 @@ export const TaskTracker = () => {
               </p>
             </div>
 
-            <IoTrashBin className="w-[20px] h-[20px] cursor-pointer flex-shrink-0 m-1" />
+            <IoTrashBin
+              onClick={() => deleteTask(idx)}
+              className="w-[20px] h-[20px] cursor-pointer flex-shrink-0 m-1"
+            />
           </div>
         ))}
       </div>

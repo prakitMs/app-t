@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { format } from "date-fns";
+import { format, getMonth } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -39,14 +39,32 @@ export function BirthdayCal() {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const date = format(data.dob, "dd MMMM yyyy");
     const toDay = new Date();
+
     const yearNow = toDay.getFullYear();
     const yourDate = Number(format(date, "yyyy"));
-    const age = yearNow - yourDate;
-    const showage = toast("Event has been created", {
+
+    let age = 0;
+    let mAge = 0;
+
+    if (toDay.getMonth() < data.dob.getMonth()) {
+      age = yearNow - yourDate - 1;
+    } else {
+      age = yearNow - yourDate;
+    }
+
+    if (toDay.getMonth() > data.dob.getMonth()) {
+      mAge = toDay.getMonth() - data.dob.getMonth();
+    } else {
+      mAge = toDay.getMonth() - data.dob.getMonth() + 12;
+    }
+
+    toast("Event has been created", {
       description: (
         <>
           <div>Your birthday is {date}</div>
-          <div>Your age is {age}</div>
+          <div>
+            Your age is {age} Y {mAge} M
+          </div>
         </>
       ),
     });
