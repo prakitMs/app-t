@@ -8,9 +8,9 @@ export function Calendar({ ...props }) {
 
   return (
     <DayPicker
+      className="px-3"
       captionLayout="dropdown"
-      defaultMonth={new Date(2024, 6)}
-      startMonth={new Date(1950, 6)}
+      defaultMonth={new Date()}
       endMonth={new Date()}
       selected={selected}
       onSelect={setSelected}

@@ -4,9 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { toast } from "sonner";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -24,29 +22,26 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-const FormSchema = z.object({
-  dob: z.date({
-    required_error: "A date of birth is required.",
-  }),
-});
+import {
+  BirthDate,
+  BirthDateSchema,
+} from "@/components/schema/BirthDateSchema.schema";
 
 export function BirthdayCal() {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const form = useForm<BirthDate>({
+    resolver: zodResolver(BirthDateSchema),
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: BirthDate) {
     const date = format(data.dob, "dd MMMM yyyy");
     const toDay = new Date();
     const yearNow = toDay.getFullYear();
     const yourDate = Number(format(date, "yyyy"));
     const age = yearNow - yourDate;
-    const showage = toast("Event has been created", {
+    toast(`You're ${age} year old.`, {
       description: (
         <>
-          <div>Your birthday is {date}</div>
-          <div>Your age is {age}</div>
+          <div>birthday: {date}</div>
         </>
       ),
     });
