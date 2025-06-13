@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { format, getMonth } from "date-fns";
+import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -31,7 +31,7 @@ const FormSchema = z.object({
   }),
 });
 
-export function BirthdayCal() {
+export function AgeCal() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -71,7 +71,7 @@ export function BirthdayCal() {
   }
 
   return (
-    <div className="bg-emerald-100 w-[330px] rounded-xl m-3 p-3 flex justify-center">
+    <div className="bg-gradient-to-t from-violet-300 to-slate-300/50 w-[330px] rounded-xl m-3 p-3 flex justify-center shadow-lg">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -79,7 +79,9 @@ export function BirthdayCal() {
             name="dob"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Date of birth</FormLabel>
+                <FormLabel className="text-black">
+                  What is your birthday ?
+                </FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -108,7 +110,7 @@ export function BirthdayCal() {
                     />
                   </PopoverContent>
                 </Popover>
-                <FormDescription>
+                <FormDescription className="text-black">
                   Your date of birth is used to calculate your age.
                 </FormDescription>
                 <FormMessage />

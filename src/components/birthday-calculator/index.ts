@@ -1,1 +1,0 @@
-export { BirthdayCal } from "./BirthdayCal";

@@ -1,3 +1,4 @@
+"use client";
 import React, { ChangeEvent, useState } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoTrashBin } from "react-icons/io5";
@@ -36,18 +37,18 @@ export const TaskTracker = () => {
   }
 
   return (
-    <div className="bg-[#9EC5AB] w-[500px] m-2 p-4 rounded-xl">
-      <div className="mb-4 border-2 border-black rounded-sm p-2 w-[100%] grid grid-cols-8 h-[60px]">
+    <div className=" bg-slate-800/50 border-2 border-slate-700  p-4 rounded-xl w-full">
+      <div className="mb-4 border-2 border-slate-700 rounded-sm p-2 w-[100%] grid grid-cols-8 h-[60px]">
         <input
-          className="col-span-7 p-2 focus:outline-0"
+          className="col-span-7 p-2 focus:outline-0 bg-slate-800/50 text-[#f0f0f0] shadow-lg"
           type="text"
           value={inputTask}
           onChange={handleChange}
           placeholder="Enter task"
         />
-        <div className="col-span-1 flex items-center justify-center">
+        <div className="col-span-1 flex items-center justify-center text-gray-300 ">
           <IoMdAddCircle
-            className="w-[40px] h-[40px] cursor-pointer"
+            className="w-[40px] h-[40px] cursor-pointer text-[#4FC3F7]"
             onClick={handleClick}
           />
         </div>
@@ -57,7 +58,7 @@ export const TaskTracker = () => {
         {task.map(({ label, active }, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between border border-amber-200 rounded px-2 py-1 bg-white"
+            className="flex items-center justify-between rounded px-2 py-1 bg-[#2d2d44]"
           >
             <div className="flex items-center gap-2 flex-1 overflow-hidden">
               <input
@@ -67,7 +68,7 @@ export const TaskTracker = () => {
                 onChange={() => toggleTask(idx)}
               />
               <p
-                className={`break-words w-full ${
+                className={`break-words w-full text-[#f0f0f0] ${
                   active ? "" : "line-through text-gray-500"
                 }`}
               >
@@ -77,7 +78,7 @@ export const TaskTracker = () => {
 
             <IoTrashBin
               onClick={() => deleteTask(idx)}
-              className="w-[20px] h-[20px] cursor-pointer flex-shrink-0 m-1"
+              className="w-[20px] h-[20px] cursor-pointer flex-shrink-0 m-1 text-[#ff6b6b]"
             />
           </div>
         ))}
