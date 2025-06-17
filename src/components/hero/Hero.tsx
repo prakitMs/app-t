@@ -61,7 +61,7 @@ export const Hero = () => {
           </a>
 
           <a
-            href="prakitsra@gmail.com"
+            href="mailto:prakitsra@gmail.com"
             className="text-gray-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110"
           >
             <Mail size={28} />

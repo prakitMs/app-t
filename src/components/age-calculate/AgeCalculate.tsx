@@ -37,33 +37,30 @@ export function AgeCal() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    const date = format(data.dob, "dd MMMM yyyy");
-    const toDay = new Date();
+    const birthDate = data.dob;
+    const today = new Date();
 
-    const yearNow = toDay.getFullYear();
-    const yourDate = Number(format(date, "yyyy"));
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
 
-    let age = 0;
-    let mAge = 0;
-
-    if (toDay.getMonth() < data.dob.getMonth()) {
-      age = yearNow - yourDate - 1;
-    } else {
-      age = yearNow - yourDate;
+    if (months < 0 || (months === 0 && days < 0)) {
+      age--;
+      months += 12;
     }
 
-    if (toDay.getMonth() > data.dob.getMonth()) {
-      mAge = toDay.getMonth() - data.dob.getMonth();
-    } else {
-      mAge = toDay.getMonth() - data.dob.getMonth() + 12;
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      days += prevMonth.getDate();
     }
 
     toast("Event has been created", {
       description: (
         <>
-          <div>Your birthday is {date}</div>
+          <div>Your birthday is {format(birthDate, "dd MMMM yyyy")}</div>
           <div>
-            Your age is {age} Y {mAge} M
+            Your age is {age} Y {months} M
           </div>
         </>
       ),

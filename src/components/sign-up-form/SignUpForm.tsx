@@ -16,7 +16,6 @@ import { useSignUpForm } from "./SignUpForm.hook";
 const SignUpForm = () => {
   const {
     handleInputChange,
-    handleSubmit,
     setShowPassword,
     setShowConfirmPassword,
     showConfirmPassword,
@@ -24,6 +23,7 @@ const SignUpForm = () => {
     errors,
     showPassword,
     isLoading,
+    handleSubmit,
   } = useSignUpForm();
 
   return (

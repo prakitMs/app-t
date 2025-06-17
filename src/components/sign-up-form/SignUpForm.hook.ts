@@ -1,5 +1,7 @@
 "use client";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/use-toast";
+import { useRegisterUser } from "@/hooks/useRegisterUser";
+import { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 
 interface FormData {
@@ -19,7 +21,8 @@ interface FormErrors {
 }
 
 export const useSignUpForm = () => {
-  const { toast } = useToast();
+  const registerUserMutation = useRegisterUser();
+
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -90,51 +93,52 @@ export const useSignUpForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
-
+    if (!validateForm()) return;
     setIsLoading(true);
 
-    // Simulate API call
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      toast({
-        title: "Account created successfully!",
-        description: `Welcome ${formData.firstName}! Your account has been created.`,
-      });
-
-      console.log("Form submitted:", {
+    await registerUserMutation.mutateAsync(
+      {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
-        // Don't log passwords in real applications
-      });
+      },
+      {
+        onSuccess: () => {
+          toast.success("Account created successfully!", {
+            description: `Welcome ${formData.firstName}! Your account has been created.`,
+            descriptionClassName: "!text-green-500",
+          });
 
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+          resetForm();
+          setIsLoading(false);
+        },
+        onError: (error) => {
+          const message = ((error as AxiosError)?.response as AxiosResponse)
+            ?.data?.message;
+          setIsLoading(false);
+          toast.error("Registration failed", {
+            description: message || "Please try again later.",
+            descriptionClassName: "!text-red-500",
+          });
+        },
+      }
+    );
+  };
+
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    setErrors({});
   };
 
   return {
     handleInputChange,
-    handleSubmit,
     setShowPassword,
     setShowConfirmPassword,
     showConfirmPassword,
@@ -142,5 +146,6 @@ export const useSignUpForm = () => {
     errors,
     showPassword,
     isLoading,
+    handleSubmit,
   };
 };
