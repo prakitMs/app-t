@@ -1,6 +1,7 @@
 "use client";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 interface FormData {
   email: string;
@@ -64,34 +65,25 @@ export const useSignInForm = () => {
 
     setIsLoading(true);
 
-    // Simulate API call
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+    const res = await signIn("credentials", {
+      email: formData.email,
+      password: formData.password,
+      redirect: false,
+    });
+    console.log(res);
 
-      toast({
-        title: "Sign In successfully!",
-        description: `Welcome ${formData.email}! Your account has been created.`,
-      });
-
-      console.log("Form submitted:", {
-        email: formData.email,
-        password: formData.password,
-        // Don't log passwords in real applications
-      });
-
-      // Reset form
-      setFormData({
-        email: "",
-        password: "",
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
+    if (res?.ok) {
       setIsLoading(false);
+      toast.success("Sign success", {
+        description: `Welcome ${formData.email}`,
+        descriptionClassName: "!text-green-500",
+      });
+    } else {
+      setIsLoading(false);
+      toast.error("Sign fail", {
+        description: res?.error,
+        descriptionClassName: "!text-red-500",
+      });
     }
   };
 

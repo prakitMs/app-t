@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Eye, EyeOff, User, Mail, Lock, UserPlus } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, UserPlus } from "lucide-react";
 import { useSignInForm } from "./SignInForm.hook";
 
 const SignInForm = () => {
