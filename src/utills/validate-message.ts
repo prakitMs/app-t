@@ -1,0 +1,15 @@
+export const ERROR_MESSAGES = {
+  firstNameRequired: "First name is required",
+  firstNameTooShort: "First name must be at least 2 characters",
+  lastNameRequired: "Last name is required",
+  lastNameTooShort: "Last name must be at least 2 characters",
+  emailRequired: "Email is required",
+  emailInvalid: "Enter a valid email address",
+  passwordRequired: "Password is required",
+  passwordTooShort: "Password must be at least 8 characters",
+  passwordWeak: "Password must include uppercase, lowercase, and a number",
+  confirmPasswordRequired: "Please confirm your password",
+  confirmPasswordMismatch: "Passwords do not match",
+  phoneRequired: "Phone is required",
+  phoneInvalid: "Phone must be at least 10 digits",
+};

@@ -2,6 +2,7 @@
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface FormData {
   email: string;
@@ -14,6 +15,7 @@ interface FormErrors {
 }
 
 export const useSignInForm = () => {
+  const router = useRouter();
   const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     email: "",
@@ -78,6 +80,9 @@ export const useSignInForm = () => {
         description: `Welcome ${formData.email}`,
         descriptionClassName: "!text-green-500",
       });
+      setTimeout(() => {
+        router.push("/user-profile"); // Replace with your desired route
+      }, 100);
     } else {
       setIsLoading(false);
       toast.error("Sign fail", {

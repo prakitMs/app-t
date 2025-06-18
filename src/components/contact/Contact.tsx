@@ -55,7 +55,7 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
@@ -69,7 +69,7 @@ export const Contact = () => {
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {contactInfo.map((item, index) => (
                 <a
                   key={index}

@@ -3,15 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Eye, EyeOff, Mail, Lock, UserPlus } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useSignInForm } from "./SignInForm.hook";
+import { RiLoginCircleFill } from "react-icons/ri";
 
 const SignInForm = () => {
   const {
@@ -30,14 +25,11 @@ const SignInForm = () => {
         <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
           <CardHeader className="space-y-1 text-center pb-6">
             <div className="mx-auto w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mb-4">
-              <UserPlus className="h-6 w-6 text-white" />
+              <RiLoginCircleFill className="h-10 w-10 text-white" />
             </div>
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Create your account
+              WELCOME
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
-              Enter your details to get started
-            </CardDescription>
           </CardHeader>
 
           <CardContent>
@@ -111,10 +103,10 @@ const SignInForm = () => {
                 {isLoading ? (
                   <div className="flex items-center justify-center">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Sing In successfully +++
+                    Sing In successfully
                   </div>
                 ) : (
-                  "Create Account"
+                  "Login"
                 )}
               </Button>
             </form>
@@ -126,7 +118,7 @@ const SignInForm = () => {
                   href="/sign-up"
                   className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
                 >
-                  Sign Up
+                  SIGN IN
                 </a>
               </p>
               <a href="/" className="hover:underline">

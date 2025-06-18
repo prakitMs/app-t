@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Eye, EyeOff, User, Mail, Lock, UserPlus } from "lucide-react";
 import { useSignUpForm } from "./SignUpForm.hook";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const SignUpForm = () => {
   const {
@@ -203,6 +204,28 @@ const SignUpForm = () => {
                 )}
               </div>
 
+              {/* Phone */}
+              <div className="space-y-2">
+                <Label htmlFor="tel" className="text-sm font-medium">
+                  Phone
+                </Label>
+                <div className="relative">
+                  <FaPhoneAlt className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="xxx-xxx-xxx"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    className={`pl-10 ${
+                      errors.phone ? "border-red-500 focus:border-red-500" : ""
+                    }`}
+                  />
+                </div>
+                {errors.phone && (
+                  <p className="text-sm text-red-500">{errors.phone}</p>
+                )}
+              </div>
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2.5 transition-all duration-200"

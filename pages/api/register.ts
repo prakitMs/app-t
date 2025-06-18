@@ -10,9 +10,9 @@ export default async function handler(
 ) {
   if (req.method !== "POST") return res.status(405).end();
 
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, phone } = req.body;
 
-  if (!email || !password || !firstName || !lastName) {
+  if (!email || !password || !firstName || !lastName || !phone) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
@@ -31,6 +31,7 @@ export default async function handler(
         password: hashedPassword,
         firstName,
         lastName,
+        phone,
       },
     });
 

@@ -1,6 +1,7 @@
 "use client";
 import { toast } from "@/hooks/use-toast";
 import { useRegisterUser } from "@/hooks/useRegisterUser";
+import { ERROR_MESSAGES } from "@/utills/validate-message";
 import { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 
@@ -10,6 +11,7 @@ interface FormData {
   email: string;
   password: string;
   confirmPassword: string;
+  phone: string;
 }
 
 interface FormErrors {
@@ -18,6 +20,7 @@ interface FormErrors {
   email?: string;
   password?: string;
   confirmPassword?: string;
+  phone?: string;
 }
 
 export const useSignUpForm = () => {
@@ -29,6 +32,7 @@ export const useSignUpForm = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    phone: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -36,50 +40,47 @@ export const useSignUpForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const isEmpty = (val: string) => !val.trim();
+
+  const isTooShort = (val: string, len: number) => val.trim().length < len;
+
   const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
+    const errors: FormErrors = {};
 
-    // First name validation
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
-    } else if (formData.firstName.trim().length < 2) {
-      newErrors.firstName = "First name must be at least 2 characters";
+    const { firstName, lastName, email, password, confirmPassword, phone } =
+      formData;
+
+    if (isEmpty(firstName)) errors.firstName = ERROR_MESSAGES.firstNameRequired;
+    else if (isTooShort(firstName, 2))
+      errors.firstName = ERROR_MESSAGES.firstNameTooShort;
+
+    if (isEmpty(lastName)) errors.lastName = ERROR_MESSAGES.lastNameRequired;
+    else if (isTooShort(lastName, 2))
+      errors.lastName = ERROR_MESSAGES.lastNameTooShort;
+
+    if (isEmpty(email)) errors.email = ERROR_MESSAGES.emailRequired;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errors.email = ERROR_MESSAGES.emailInvalid;
+
+    if (!password) errors.password = ERROR_MESSAGES.passwordRequired;
+    else if (password.length < 8)
+      errors.password = ERROR_MESSAGES.passwordTooShort;
+    else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+      errors.password = ERROR_MESSAGES.passwordWeak;
     }
 
-    // Last name validation
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
-    } else if (formData.lastName.trim().length < 2) {
-      newErrors.lastName = "Last name must be at least 2 characters";
+    if (!confirmPassword)
+      errors.confirmPassword = ERROR_MESSAGES.confirmPasswordRequired;
+    else if (password !== confirmPassword) {
+      errors.confirmPassword = ERROR_MESSAGES.confirmPasswordMismatch;
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
+    if (isEmpty(phone)) errors.phone = ERROR_MESSAGES.phoneRequired;
+    else if (!/^\d{10,}$/.test(phone))
+      errors.phone = ERROR_MESSAGES.phoneInvalid;
 
-    // Password validation
-    if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
-      newErrors.password =
-        "Password must contain at least one uppercase letter, one lowercase letter, and one number";
-    }
-
-    // Confirm password validation
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = "Please confirm your password";
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -102,6 +103,7 @@ export const useSignUpForm = () => {
         lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
+        phone: formData.phone,
       },
       {
         onSuccess: () => {
@@ -133,6 +135,7 @@ export const useSignUpForm = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      phone: "",
     });
     setErrors({});
   };
