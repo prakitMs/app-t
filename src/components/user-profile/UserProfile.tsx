@@ -7,7 +7,8 @@ import { signOut } from "next-auth/react";
 import { useUserProfile } from "./UserProfile.hook";
 
 const UserProfile = () => {
-  const { userData, isLoading, error, getInitials } = useUserProfile();
+  const { userData, isLoading, error, getInitials, getNames } =
+    useUserProfile();
 
   if (isLoading) return <p>Loading...</p>;
   if (error || !userData)
@@ -19,13 +20,15 @@ const UserProfile = () => {
         <CardHeader className="text-center pb-4">
           <div className="flex justify-center mb-4">
             <Avatar className="w-24 h-24 border-4 border-white shadow-lg">
-              <AvatarFallback className="text-2xl font-semibold bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+              <AvatarFallback className="text-2xl font- semibold bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
                 {getInitials(userData.firstName ?? "", userData.lastName ?? "")}
               </AvatarFallback>
             </Avatar>
           </div>
           <h1 className="text-2xl font-bold text-gray-900">
-            {userData.firstName} {userData.lastName}
+            {getNames(userData.firstName ?? "")}
+            {"  "}
+            {getNames(userData.lastName ?? "")}
           </h1>
         </CardHeader>
 
@@ -34,7 +37,9 @@ const UserProfile = () => {
             <User className="w-5 h-5 text-gray-500" />
             <div>
               <p className="text-sm font-medium text-gray-700">First Name</p>
-              <p className="text-gray-900">{userData.firstName}</p>
+              <p className="text-gray-900">
+                {getNames(userData.firstName ?? "")}
+              </p>
             </div>
           </div>
 
@@ -42,7 +47,9 @@ const UserProfile = () => {
             <User className="w-5 h-5 text-gray-500" />
             <div>
               <p className="text-sm font-medium text-gray-700">Last Name</p>
-              <p className="text-gray-900">{userData.lastName}</p>
+              <p className="text-gray-900">
+                {getNames(userData.lastName ?? "")}
+              </p>
             </div>
           </div>
 

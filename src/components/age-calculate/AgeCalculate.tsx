@@ -55,7 +55,7 @@ export function AgeCal() {
       days += prevMonth.getDate();
     }
 
-    toast("Event has been created", {
+    toast("Age Summary", {
       description: (
         <>
           <div>Your birthday is {format(birthDate, "dd MMMM yyyy")}</div>

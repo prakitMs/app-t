@@ -1,41 +1,34 @@
 import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react";
 import { FaFacebook, FaLine } from "react-icons/fa";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
 export const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
       content: "prakitsra@gmail.com",
-      link: "#",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      content: "0982320694",
-      link: "#",
+      content: "098-232-0694",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
       content: "Nakhonratchasima ,Thailand",
-      link: "#",
     },
   ];
 
   const socialLinks = [
     {
-      icon: <FaFacebook size={24} />,
+      icon: <FaFacebook size={54} />,
       url: "https://www.facebook.com/prakit.srakaew",
       label: "facebook",
     },
 
     {
-      icon: <FaLine size={24} />,
+      icon: <FaLine size={54} />,
       url: "https://line.me/ti/p/twe-g706Pl",
       label: "Line",
     },
@@ -71,9 +64,8 @@ export const Contact = () => {
 
             <div className="space-y-8">
               {contactInfo.map((item, index) => (
-                <a
+                <div
                   key={index}
-                  href={item.link}
                   className="flex items-center gap-4 p-4 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors duration-300 border border-slate-700 hover:border-purple-500/50"
                 >
                   <div className="text-purple-400">{item.icon}</div>
@@ -81,12 +73,12 @@ export const Contact = () => {
                     <h4 className="text-white font-medium">{item.title}</h4>
                     <p className="text-gray-300">{item.content}</p>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
 
             <div className="pt-6">
-              <h4 className="text-white font-semibold mb-4">Follow Me</h4>
+              <h4 className="text-white font-semibold mb-4">Contact Me</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <a

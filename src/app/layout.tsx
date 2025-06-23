@@ -31,7 +31,14 @@ export default function RootLayout({
       >
         <Provider>
           {children}
-          <Toaster />
+          <Toaster
+            toastOptions={{
+              style: {
+                backgroundColor: "#1e293b",
+                color: "#fff",
+              },
+            }}
+          />
         </Provider>
       </body>
     </html>

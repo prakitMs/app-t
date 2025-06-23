@@ -118,7 +118,7 @@ const SignInForm = () => {
                   href="/sign-up"
                   className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
                 >
-                  SIGN IN
+                  Sign up
                 </a>
               </p>
               <a href="/" className="hover:underline">
