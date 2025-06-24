@@ -29,9 +29,10 @@ export default function Weather() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="grid grid-cols-7 ">
-        <div className="bg-gradient-to-r from-indigo-200 to-purple-200  bg-clip-text text-transparent text-[30px] font-bold p-2 col-span-3 col-start-4">
+        <div className="bg-white bg-clip-text text-transparent text-[30px] font-bold p-2 col-span-3 col-start-4">
           Weather Dashboard
         </div>
+
         <a href="/" className="col-start-8 p-2 text-white hover:underline">
           Home Page
         </a>
@@ -41,7 +42,7 @@ export default function Weather() {
         {weatherData && (
           <WeatherCard
             data={weatherData}
-            className="animate-fade-in bg-white/80 backdrop-blur-md shadow-lg rounded-2xl "
+            className="animate-fade-in shadow-lg rounded-2xl "
           />
         )}
 
@@ -49,7 +50,7 @@ export default function Weather() {
           <WeatherChart
             data={hourlyData}
             title="24-Hour Forecast"
-            className="animate-fade-in bg-white/80 backdrop-blur-md shadow-lg rounded-2xl "
+            className="animate-fade-in shadow-lg rounded-2xl "
           />
         </div>
       </div>

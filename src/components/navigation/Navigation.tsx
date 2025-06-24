@@ -42,7 +42,6 @@ export const Navigation = () => {
             Portfolio
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
@@ -56,20 +55,19 @@ export const Navigation = () => {
               ))}
               <a
                 href="/sign-up"
-                className="bg-gradient-to-t from-pink-400 from-40% to-fuchsia-700 text-white px-4 py-2 rounded-lg hover:from-pink-300 hover:to-red-400 transition"
+                className="bg-violet-500 hover:bg-violet-300 text-white hover:text-black px-4 py-2 rounded-lg "
               >
                 Sign Up
               </a>
               <a
                 href="/sign-in"
-                className="bg-gradient-to-t from-[#3d0066] to-[#510087] text-[#ffd500] hover:from-[#471ca8] hover:to-slate-700 px-4 py-2 rounded-lg  transition"
+                className="bg-violet-500 hover:bg-violet-300 text-white hover:text-black  px-4 py-2 rounded-lg "
               >
                 Sign In
               </a>
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -80,7 +78,6 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800/95 backdrop-blur-sm rounded-lg mt-2">

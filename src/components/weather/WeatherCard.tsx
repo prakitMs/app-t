@@ -38,15 +38,9 @@ export const WeatherCard = ({ data, className }: WeatherCardProps) => {
   };
 
   return (
-    <Card
-      className={cn(
-        "bg-white/90 backdrop-blur-sm border-0 shadow-2xl",
-        className
-      )}
-    >
+    <Card className={cn("bg-white border-0 shadow-2xl", className)}>
       <CardContent className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Main Weather Info */}
           <div className="space-y-4">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -64,7 +58,6 @@ export const WeatherCard = ({ data, className }: WeatherCardProps) => {
             </div>
           </div>
 
-          {/* Weather Details */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Weather Details

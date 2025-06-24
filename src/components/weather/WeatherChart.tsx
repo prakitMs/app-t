@@ -26,12 +26,7 @@ interface WeatherChartProps {
 
 export const WeatherChart = ({ data, title, className }: WeatherChartProps) => {
   return (
-    <Card
-      className={cn(
-        "bg-white/90 backdrop-blur-sm border-0 shadow-xl",
-        className
-      )}
-    >
+    <Card className={cn("bg-white border-0 shadow-xl", className)}>
       <CardHeader>
         <CardTitle className="text-xl font-semibold text-gray-800">
           {title}
