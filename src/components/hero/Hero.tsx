@@ -20,9 +20,9 @@ export const Hero = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            I would be delighted to help you create beautiful, responsive web
-            experiences using modern technologies and thoughtful design
-            principles
+            {
+              "I would be delighted to help you create beautiful, responsive web experiences using modern technologies and thoughtful design principles"
+            }
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export const Hero = () => {
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Let's Connect
+            {"Let's Connect"}
           </Button>
         </div>
 

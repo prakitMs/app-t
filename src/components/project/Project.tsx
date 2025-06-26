@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export const Projects = () => {
   const projects = [
@@ -35,11 +35,12 @@ export const Projects = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Featured Projects
+            {"Featured Projects"}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm pleased to share some of my recent work that demonstrates
-            various skills and technologies
+            {
+              "I'm pleased to share some of my recent work that demonstrates various skills and technologies"
+            }
           </p>
         </div>
 
@@ -83,7 +84,7 @@ export const Projects = () => {
                     className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2 rounded-xl p-2"
                   >
                     <ExternalLink size={16} />
-                    Live Demo
+                    {"Live Demo"}
                   </a>
                 </div>
               </div>

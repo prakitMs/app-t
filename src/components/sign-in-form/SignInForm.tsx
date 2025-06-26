@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useSignInForm } from "./SignInForm.hook";
 import { RiLoginCircleFill } from "react-icons/ri";
+import Link from "next/link";
 
 const SignInForm = () => {
   const {
@@ -113,7 +114,7 @@ const SignInForm = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
-                Don't have an account{" "}
+                {"Don't have an account "}
                 <a
                   href="/sign-up"
                   className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
@@ -121,9 +122,9 @@ const SignInForm = () => {
                   Sign up
                 </a>
               </p>
-              <a href="/" className="hover:underline">
-                Home Page
-              </a>
+              <Link href="/" className="hover:underline">
+                {"Home Page"}
+              </Link>
             </div>
           </CardContent>
         </Card>

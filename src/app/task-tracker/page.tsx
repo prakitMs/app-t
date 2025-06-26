@@ -1,4 +1,5 @@
 import { TaskTracker } from "@/components/task-tracker";
+import Link from "next/link";
 import { RiTodoLine } from "react-icons/ri";
 
 export default function TaskTacker() {
@@ -13,9 +14,9 @@ export default function TaskTacker() {
         <div className="w-full  space-y-4">
           <TaskTracker />
           <div className="text-center">
-            <a href="/" className="text-white hover:underline">
+            <Link href="/" className="text-white hover:underline">
               Home Page
-            </a>
+            </Link>
           </div>
         </div>
       </main>

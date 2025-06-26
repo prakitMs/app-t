@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { WeatherCard, WeatherChart } from "@/components/weather";
+import Link from "next/link";
 const mockWeatherData = {
   location: "Thailand",
   temperature: 34,
@@ -24,7 +25,7 @@ const hourlyData = [
 ];
 
 export default function Weather() {
-  const [weatherData, setWeatherData] = useState(mockWeatherData);
+  const [weatherData] = useState(mockWeatherData);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -33,9 +34,9 @@ export default function Weather() {
           Weather Dashboard
         </div>
 
-        <a href="/" className="col-start-8 p-2 text-white hover:underline">
+        <Link href="/" className="col-start-8 p-2 text-white hover:underline">
           Home Page
-        </a>
+        </Link>
       </div>
 
       <div className="p-3">

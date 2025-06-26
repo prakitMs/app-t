@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebook, FaLine } from "react-icons/fa";
 
 export const Contact = () => {
@@ -39,26 +39,25 @@ export const Contact = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Let's Connect
+            {"Let's Connect"}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I would be honored to collaborate with you on your next project.
-            Please feel free to reach out to discuss how we can bring your ideas
-            to life together.
+            {
+              "I would be honored to collaborate with you on your next project.Please feel free to reach out to discuss how we can bring your ideasto life together."
+            }
           </p>
         </div>
 
         <div className="flex justify-center">
-          {/* Contact Information */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">
-                I'd Love to Hear From You
+                {"I'd Love to Hear From You"}
               </h3>
               <p className="text-gray-300 mb-8">
-                I'm always excited about new opportunities and interesting
-                projects. Whether you have a question, a project idea, or just
-                want to say hello, I'd be delighted to hear from you!
+                {
+                  "I'm always excited about new opportunities and interesting projects. Whether you have a question, a project idea, or justwant to say hello, I'd be delighted to hear from you!"
+                }
               </p>
             </div>
 

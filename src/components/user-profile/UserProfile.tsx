@@ -5,6 +5,7 @@ import { Mail, User } from "lucide-react";
 import { FaHome, FaPhoneAlt } from "react-icons/fa";
 import { signOut } from "next-auth/react";
 import { useUserProfile } from "./UserProfile.hook";
+import Link from "next/link";
 
 const UserProfile = () => {
   const { userData, isLoading, error, getInitials, getNames } =
@@ -77,13 +78,13 @@ const UserProfile = () => {
           Sign out
         </button>
 
-        <a
+        <Link
           href="/"
           className="text-blue-400 hover:underline flex justify-end p-2 "
         >
           <FaHome className="text-2xl p-1 " />
           home page
-        </a>
+        </Link>
       </Card>
     </div>
   );

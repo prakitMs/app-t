@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +12,7 @@ import {
 import { Eye, EyeOff, User, Mail, Lock, UserPlus } from "lucide-react";
 import { useSignUpForm } from "./SignUpForm.hook";
 import { FaPhoneAlt } from "react-icons/fa";
+import Link from "next/link";
 
 const SignUpForm = () => {
   const {
@@ -244,7 +244,7 @@ const SignUpForm = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
-                Already have an account?{" "}
+                {"Already have an account? "}
                 <a
                   href="/sign-in"
                   className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
@@ -252,9 +252,9 @@ const SignUpForm = () => {
                   Sign in
                 </a>
               </p>
-              <a href="/" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 Home Page
-              </a>
+              </Link>
             </div>
           </CardContent>
         </Card>

@@ -1,4 +1,5 @@
 import { AgeCal } from "@/components/age-calculate";
+import Link from "next/link";
 
 export default function AgeCalculate() {
   return (
@@ -10,9 +11,9 @@ export default function AgeCalculate() {
         <AgeCal />
       </div>
       <div className="text-center">
-        <a href="/" className="text-white hover:underline">
+        <Link href="/" className="text-white hover:underline">
           Home Page
-        </a>
+        </Link>
       </div>
     </div>
   );
