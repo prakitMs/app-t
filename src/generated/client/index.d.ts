@@ -882,37 +882,37 @@ export namespace Prisma {
   export type UserMinAggregateOutputType = {
     id: string | null
     email: string | null
-    firstName: string | null
-    lastName: string | null
     password: string | null
-    phone: string | null
-    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    firstName: string | null
+    isActive: boolean | null
+    lastName: string | null
+    phone: string | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
     email: string | null
-    firstName: string | null
-    lastName: string | null
     password: string | null
-    phone: string | null
-    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    firstName: string | null
+    isActive: boolean | null
+    lastName: string | null
+    phone: string | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     email: number
-    firstName: number
-    lastName: number
     password: number
-    phone: number
-    isActive: number
     createdAt: number
     updatedAt: number
+    firstName: number
+    isActive: number
+    lastName: number
+    phone: number
     _all: number
   }
 
@@ -920,37 +920,37 @@ export namespace Prisma {
   export type UserMinAggregateInputType = {
     id?: true
     email?: true
-    firstName?: true
-    lastName?: true
     password?: true
-    phone?: true
-    isActive?: true
     createdAt?: true
     updatedAt?: true
+    firstName?: true
+    isActive?: true
+    lastName?: true
+    phone?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     email?: true
-    firstName?: true
-    lastName?: true
     password?: true
-    phone?: true
-    isActive?: true
     createdAt?: true
     updatedAt?: true
+    firstName?: true
+    isActive?: true
+    lastName?: true
+    phone?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     email?: true
-    firstName?: true
-    lastName?: true
     password?: true
-    phone?: true
-    isActive?: true
     createdAt?: true
     updatedAt?: true
+    firstName?: true
+    isActive?: true
+    lastName?: true
+    phone?: true
     _all?: true
   }
 
@@ -1029,13 +1029,13 @@ export namespace Prisma {
   export type UserGroupByOutputType = {
     id: string
     email: string
-    firstName: string
-    lastName: string
     password: string
-    phone: string
-    isActive: boolean
     createdAt: Date
     updatedAt: Date
+    firstName: string
+    isActive: boolean
+    lastName: string
+    phone: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1058,52 +1058,52 @@ export namespace Prisma {
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
-    firstName?: boolean
-    lastName?: boolean
     password?: boolean
-    phone?: boolean
-    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    firstName?: boolean
+    isActive?: boolean
+    lastName?: boolean
+    phone?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
-    firstName?: boolean
-    lastName?: boolean
     password?: boolean
-    phone?: boolean
-    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    firstName?: boolean
+    isActive?: boolean
+    lastName?: boolean
+    phone?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
-    firstName?: boolean
-    lastName?: boolean
     password?: boolean
-    phone?: boolean
-    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    firstName?: boolean
+    isActive?: boolean
+    lastName?: boolean
+    phone?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
     email?: boolean
-    firstName?: boolean
-    lastName?: boolean
     password?: boolean
-    phone?: boolean
-    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    firstName?: boolean
+    isActive?: boolean
+    lastName?: boolean
+    phone?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "password" | "phone" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "createdAt" | "updatedAt" | "firstName" | "isActive" | "lastName" | "phone", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1111,13 +1111,13 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
-      firstName: string
-      lastName: string
       password: string
-      phone: string
-      isActive: boolean
       createdAt: Date
       updatedAt: Date
+      firstName: string
+      isActive: boolean
+      lastName: string
+      phone: string
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1543,13 +1543,13 @@ export namespace Prisma {
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
-    readonly firstName: FieldRef<"User", 'String'>
-    readonly lastName: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly phone: FieldRef<"User", 'String'>
-    readonly isActive: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly firstName: FieldRef<"User", 'String'>
+    readonly isActive: FieldRef<"User", 'Boolean'>
+    readonly lastName: FieldRef<"User", 'String'>
+    readonly phone: FieldRef<"User", 'String'>
   }
     
 
@@ -1933,13 +1933,13 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     email: 'email',
-    firstName: 'firstName',
-    lastName: 'lastName',
     password: 'password',
-    phone: 'phone',
-    isActive: 'isActive',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    firstName: 'firstName',
+    isActive: 'isActive',
+    lastName: 'lastName',
+    phone: 'phone'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -1981,13 +1981,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1998,6 +1991,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -2024,25 +2024,25 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     id?: UuidFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    phone?: StringFilter<"User"> | string
-    isActive?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    firstName?: StringFilter<"User"> | string
+    isActive?: BoolFilter<"User"> | boolean
+    lastName?: StringFilter<"User"> | string
+    phone?: StringFilter<"User"> | string
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
     password?: SortOrder
-    phone?: SortOrder
-    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    firstName?: SortOrder
+    isActive?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -2051,25 +2051,25 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    phone?: StringFilter<"User"> | string
-    isActive?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    firstName?: StringFilter<"User"> | string
+    isActive?: BoolFilter<"User"> | boolean
+    lastName?: StringFilter<"User"> | string
+    phone?: StringFilter<"User"> | string
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
     password?: SortOrder
-    phone?: SortOrder
-    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    firstName?: SortOrder
+    isActive?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -2081,97 +2081,97 @@ export namespace Prisma {
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
-    firstName?: StringWithAggregatesFilter<"User"> | string
-    lastName?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
-    phone?: StringWithAggregatesFilter<"User"> | string
-    isActive?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    firstName?: StringWithAggregatesFilter<"User"> | string
+    isActive?: BoolWithAggregatesFilter<"User"> | boolean
+    lastName?: StringWithAggregatesFilter<"User"> | string
+    phone?: StringWithAggregatesFilter<"User"> | string
   }
 
   export type UserCreateInput = {
     id?: string
     email: string
-    firstName: string
-    lastName: string
     password: string
-    phone: string
-    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    firstName: string
+    isActive?: boolean
+    lastName: string
+    phone: string
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     email: string
-    firstName: string
-    lastName: string
     password: string
-    phone: string
-    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    firstName: string
+    isActive?: boolean
+    lastName: string
+    phone: string
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserCreateManyInput = {
     id?: string
     email: string
-    firstName: string
-    lastName: string
     password: string
-    phone: string
-    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    firstName: string
+    isActive?: boolean
+    lastName: string
+    phone: string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    lastName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -2201,11 +2201,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2217,40 +2212,45 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
     password?: SortOrder
-    phone?: SortOrder
-    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    firstName?: SortOrder
+    isActive?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
     password?: SortOrder
-    phone?: SortOrder
-    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    firstName?: SortOrder
+    isActive?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
     password?: SortOrder
-    phone?: SortOrder
-    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    firstName?: SortOrder
+    isActive?: SortOrder
+    lastName?: SortOrder
+    phone?: SortOrder
   }
 
   export type UuidWithAggregatesFilter<$PrismaModel = never> = {
@@ -2286,14 +2286,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2308,16 +2300,24 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedUuidFilter<$PrismaModel = never> = {
@@ -2345,11 +2345,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2359,6 +2354,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedUuidWithAggregatesFilter<$PrismaModel = never> = {
@@ -2403,14 +2403,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2423,6 +2415,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
 
